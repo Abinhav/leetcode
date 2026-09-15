@@ -1,17 +1,17 @@
-// Last updated: 15/09/2026, 14:01:52
+// Last updated: 15/09/2026, 14:05:02
 1class Solution {
 2    public String reverseWords(String s) {
 3        String arr[]=s.split(" ");
 4        int c=count(arr[0]);
-5        for(int i=1;i<arr.length;i++){
-6            if(count(arr[i])==c){
-7                arr[i]=rev(arr[i]);
-8            }
-9        }
-10        String ans="";
-11        for(int i=0;i<arr.length;i++){
-12            ans=ans+arr[i]+" ";
-13        }
+5        String ans="";
+6        ans+=arr[0]+" ";
+7        for(int i=1;i<arr.length;i++){
+8            if(count(arr[i])==c){
+9                arr[i]=rev(arr[i]);
+10            }
+11           ans=ans+arr[i]+" ";
+12        }
+13       
 14        return ans.trim();
 15    }
 16    public static boolean check(char c){

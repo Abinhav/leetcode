@@ -1,57 +1,34 @@
-// Last updated: 17/08/2026, 17:22:15
+// Last updated: 01/10/2026, 16:34:18
 1import java.util.*;
 2
 3class Solution {
 4    public List<List<Integer>> threeSum(int[] nums) {
 5
-6        List<List<Integer>> result = new ArrayList<>();
+6        List<List<Integer>> ans = new ArrayList<>();
 7
 8        Arrays.sort(nums);
 9
-10        for (int i = 0; i < nums.length - 2; i++) {
-11
-12            // Skip duplicate first elements
-13            if (i > 0 && nums[i] == nums[i - 1]) {
-14                continue;
-15            }
-16
-17            int left = i + 1;
-18            int right = nums.length - 1;
-19
-20            while (left < right) {
-21
-22                int sum = nums[i] + nums[left] + nums[right];
-23
-24                if (sum == 0) {
-25
-26                    result.add(Arrays.asList(
-27                        nums[i],
-28                        nums[left],
-29                        nums[right]
-30                    ));
-31
-32                    // Skip duplicates
-33                    while (left < right && nums[left] == nums[left + 1]) {
-34                        left++;
-35                    }
-36
-37                    while (left < right && nums[right] == nums[right - 1]) {
-38                        right--;
-39                    }
-40
-41                    left++;
-42                    right--;
-43
-44                } 
-45                else if (sum < 0) {
-46                    left++;
-47                } 
-48                else {
-49                    right--;
-50                }
-51            }
-52        }
-53
-54        return result;
-55    }
-56}
+10        for(int i=0;i<nums.length-2;i++){
+11            if(i>0&&nums[i]==nums[i-1]) continue;
+12            int l=i+1;
+13            int r=nums.length-1;
+14            while(l<r){
+15                int sum=nums[i]+nums[l]+nums[r];
+16                if(sum==0){
+17                List<Integer> cur=new ArrayList<>();
+18                cur.add(nums[i]);
+19                cur.add(nums[l]);
+20                cur.add(nums[r]);
+21                 ans.add(new ArrayList(cur));
+22                 while(l<r && nums[l]==nums[l+1]) l++;
+23                 while(l<r && nums[r]==nums[r-1]) r--;
+24                 l++;
+25                 r--;
+26                }
+27                else if(sum>0) r--;
+28                else l++;
+29            }
+30        }
+31        return ans;
+32        }
+33}

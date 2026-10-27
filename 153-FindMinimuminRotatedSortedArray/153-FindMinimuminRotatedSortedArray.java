@@ -1,4 +1,4 @@
-// Last updated: 27/10/2026, 11:19:42
+// Last updated: 27/10/2026, 11:32:37
 1class Solution {
 2    public int findMin(int[] nums) {
 3        int l=0,h=nums.length-1,ans=Integer.MAX_VALUE;
